@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firdaousse : un mélange de douceur et d'aigreur</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Firdaousse : un mélange de douceur et d'aigreur</h1>
+  <p>Si tu veux savoir pourquoi on t'aime, appuies sur START.</p>
+
+  <button onclick="startProcess()">START</button>
+
+  <div id="nameForm" class="hidden">
+    <h2>En vrai, si tu veux commencer, tu devras entrer le nom et la date de naissance de ton chanteur préféré.</h2>
+    <label for="singer">Nom du chanteur préféré :</label>
+    <input type="text" id="singer" required>
+    <br>
+    <label for="dob">Date de naissance du chanteur préféré :</label>
+    <input type="date" id="dob" required>
+    <br>
+    <button onclick="checkSinger()">Continuer</button>
+  </div>
+
+  <div id="taskEmoji" class="hidden">🎉</div>
+
+  <div id="qualitiesPage" class="hidden">
+    <h2>Tu sais quelles sont tes qualités ?</h2>
+    <p>Tu es intelligente, douce, serviable, aimable, prodige, gentille. Tu as aussi des défauts comme tout le monde, ce qui te rend attachiante.</p>
+  </div>
+
+  <button id="continueButton1" class="hidden" onclick="showIndice()">Continue</button>
+
+  <div id="indicePage" class="hidden">
+    <h2>Tu croyais que ça allait être facile ? 😏</h2>
+    <p>Tu auras seulement deux indices. Un bouton "Continue" apparaîtra.</p>
+  </div>
+
+  <button id="continueButton2" class="hidden" onclick="showCharade()">Continue</button>
+
+  <div id="charadePage" class="hidden">
+    <h2>1ère indice : Amina 👏👏👏 Amina 👏👏👏 Amina Tolé. 😄</h2>
+    <h2>Maintenant pour avoir le dernier et l'unique indice, tu dois me trouver cette charade :</h2>
+    <p>Mon premier est la première syllabe de Typhène,</p>
+    <p>Mon second est le nom donné à la personne qui dirige le Brunei, la Belgique, la Suède, la Norvège ou encore le Maroc,</p>
+    <p>Mon dernier est le R.</p>
+    <button onclick="showSecretCode()">Valider</button>
+  </div>
+
+  <div id="secretCodePage" class="hidden">
+    <h2>C'est le moment tant attendu !</h2>
+    <p>Entre la réponse pour découvrir la dernière page.</p>
+    <input type="text" id="secretCode" required>
+    <br>
+    <button onclick="checkSecretCode()">Valider</button>
+  </div>
+
+  <div id="finalPage" class="hidden">
+    <h2>Maintenant à toi de jouer. Signé Honorée, Farouk, Irssale et Naïma</h2>
+  </div>
+
+  <div id="birthdayWishes" class="hidden">
+    <h2>🎂 Joyeux Anniversaire, Fifi d'amour ! 🎂</h2>
+    <p>On te souhaite une année supplémentaire, remplie de piété, de santé, de joie, de bonheur et de réussite dans tout ce que tu entreprendras. 20 ANS maintenant !!! Une très jolie petite adulte en vue. Décroches vite ton permis de conduire pour devenir notre taxi à tous. Persévère dans tes efforts pour atteindre petit à petit tes objectifs car tu en as les moyens, il faut juste que tu trouves le courage et l'envie de puiser dans tes ressources. Tes ressources sont énormes et nous savons tous que tu en es capable. On t'aime tous très très fort. Si tu arrives à trouver ton cadeau, j'espère qu'il te plaira. Dans le cas contraire, on le rendra et on se fera rembourser MDR. Gros bisous.</p>
+  </div>
+
+  <script>
+    function startProcess() {
+      document.getElementById("nameForm").classList.remove("hidden");
+    }
+
+    function checkSinger() {
+      var singerInput = document.getElementById("singer").value.toLowerCase();
+      var dobInput = document.getElementById("dob").value;
+
+      if (singerInput === "central cee" && dobInput === "1998-06-04") {
+        document.getElementById("taskEmoji").classList.remove("hidden");
+        document.getElementById("qualitiesPage").classList.remove("hidden");
+        document.getElementById("continueButton1").classList.remove("hidden");
+      } else {
+        alert("Désolé, les informations fournies ne sont pas correctes. Veuillez réessayer.");
+      }
+    }
+
+    function showIndice() {
+      document.getElementById("indicePage").classList.remove("hidden");
+      document.getElementById("continueButton2").classList.remove("hidden");
+    }
+
+    function showCharade() {
+      document.getElementById("charadePage").classList.remove("hidden");
+    }
+
+    function showSecretCode() {
+      document.getElementById("secretCodePage").classList.remove("hidden");
+    }
+
+    function checkSecretCode() {
+      var codeInput = document.getElementById("secretCode").value.toLowerCase();
+
+      if (codeInput === "tiroir") {
+        document.getElementById("finalPage").classList.remove("hidden");
+        document.getElementById("birthdayWishes").classList.remove("hidden");
+      } else {
+        alert("Code incorrect. Essayez à nouveau.");
+      }
+    }
+  </script>
+
+</body>
+</html>
+
